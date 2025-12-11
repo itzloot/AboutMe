@@ -6,166 +6,125 @@
     <title>Free De Le Hoya - Professional Portfolio</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         :root {
             --primary: #ff3333;
-            --primary-dark: #ff6600;
             --secondary: #ffaa00;
-            --dark: #0f0f0f;
-            --light: #ffffff;
-            --gray: #888888;
-            --transition: all 0.4s ease;
+            --dark: #0a0a0a;
+            --card: #111111;
         }
-
         * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background:#0f0f0f;
-            color:#fff;
-            overflow-x:hidden;
-        }
+        html { scroll-behavior:smooth; }
+        body { font-family:'Poppins',sans-serif; background:var(--dark); color:#fff; }
 
-        .container { width:90%; max-width:1200px; margin:0 auto; padding:0 15px; }
+        .container { width:90%; max-width:1200px; margin:0 auto; padding:0 20px; }
 
         header {
             position:fixed; top:0; left:0; width:100%; z-index:1000;
-            background:rgba(15,15,15,0.95); backdrop-filter:blur(12px);
-            box-shadow:0 4px 20px rgba(0,0,0,0.4);
+            background:rgba(10,10,10,0.95); backdrop-filter:blur(15px);
+            padding:1rem 0; border-bottom:1px solid #333;
         }
-
-        .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 0; }
-        .logo-container { display:flex; align-items:center; gap:12px; }
-
+        .navbar { display:flex; justify-content:space-between; align-items:center; }
+        .logo-container { display:flex; align-items:center; gap:15px; }
         .logo {
-            width:52px; height:52px; border-radius:50%; object-fit:cover;
-            border:3px solid var(--primary);
-            box-shadow:0 0 30px rgba(255,51,51,0.7);
+            width:55px; height:55px; border-radius:50%; object-fit:cover;
+            border:3px solid var(--primary); box-shadow:0 0 30px rgba(255,51,51,0.8);
         }
-
         .logo-text {
-            font:800 1.6rem 'Montserrat',sans-serif;
-            background:linear-gradient(90deg,#ff3333,#ffaa00);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
+            font:800 1.8rem 'Montserrat'; background:linear-gradient(90deg,#ff3333,#ffaa00);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
         }
-
-        .nav-links { display:flex; gap:2.2rem; list-style:none; }
+        .nav-links { display:flex; gap:2.5rem; list-style:none; }
         .nav-links a {
-            color:#fff; text-decoration:none; font-weight:600;
-            position:relative; padding:0.5rem 0;
+            color:#fff; text-decoration:none; font-weight:600; font-size:1.1rem;
+            padding:0.5rem 0; position:relative;
         }
         .nav-links a::after {
             content:''; position:absolute; bottom:0; left:0; width:0; height:3px;
             background:var(--primary); transition:0.4s;
         }
-        .nav-links a:hover { color:#ffaa00; }
+        .nav-links a:hover { color:var(--secondary); }
         .nav-links a:hover::after { width:100%; }
 
-        .mobile-menu-btn { display:none; background:none; border:none; color:#fff; font-size:1.8rem; cursor:pointer; }
+        .mobile-menu-btn { display:none; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
 
         .hero {
-            min-height:100vh; display:flex; align-items:center; padding:120px 0 80px;
-            position:relative;
+            min-height:100vh; display:flex; align-items:center; padding:140px 0 100px;
+            background:radial-gradient(circle at 20% 80%, rgba(255,51,51,0.15), transparent 50%),
+                       radial-gradient(circle at 80% 20%, rgba(255,170,0,0.15), transparent 50%);
         }
-
-        .hero::before {
-            content:''; position:absolute; top:0; left:0; width:100%; height:100%;
-            background:
-                radial-gradient(circle at 600px at 20% 80%, rgba(255,51,51,0.25), transparent 50%),
-                radial-gradient(circle 600px at 80% 20%, rgba(255,170,0,0.25), transparent 50%);
-            z-index:-1;
-        }
-
-        .hero-content { display:flex; align-items:center; justify-content:space-between; gap:4rem; }
-        .hero-text { flex:1; max-width:600px; }
-        .hero-image { flex:1; display:flex; justify-content:center; }
-
-        .hero-image img {
-            width:340px; height:340px; border-radius:50%; object-fit:cover;
-            border:5px solid var(--primary);
-            box-shadow:0 0 60px rgba(255,51,51,0.8);
-            animation:float 7s ease-in-out infinite;
-        }
-
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-25px)} }
-
-        .hero h1 { font-size:3.8rem; margin-bottom:1rem; }
-        .hero h1 span { background:linear-gradient(90deg,#ff3333,#ffaa00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .highlight { color:#ffaa00; font-weight:700; }
-
-        .hero-buttons { display:flex; gap:1.5rem; margin-top:2rem; }
-        .btn {
-            padding:15px 40px; border-radius:50px; font-weight:600; text-decoration:none;
+        .hero-content { display:flex; align-items:center; gap:5rem; }
+        .hero-text h1 { font-size:4rem; margin-bottom:1rem; }
+        .hero-text h1 span { background:linear-gradient(90deg,#ff3333,#ffaa00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .highlight { color:var(--secondary); }
+        .hero-buttons { margin-top:2rem; display:flex; gap:1.hero-buttons a {
+            padding:16px 40px; border-radius:50px; font-weight:600; text-decoration:none;
             transition:0.4s;
         }
-        .btn-primary {
-            background:linear-gradient(90deg,#ff3333,#ffaa00);
-            color:#fff; box-shadow:0 8px 30px rgba(255,51,51,0.6);
-        }
-        .btn-primary:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(255,170,0,0.7); }
-        .btn-secondary {
-            border:2px solid #888; color:#fff;
-        }
-        .btn-secondary:hover { border-color:#ffaa00; color:#ffaa00; }
+        .btn-primary { background:linear-gradient(90deg,#ff3333,#ffaa00); color:#fff; box-shadow:0 10px 30px rgba(255,51,51,0.5); }
+        .btn-primary:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(255,170,0,0.6); }
+        .btn-secondary { border:2px solid #666; color:#fff; }
+        .btn-secondary:hover { border-color:var(--secondary); color:var(--secondary); }
 
-        .section-title { text-align:center; margin-bottom:4rem; }
-        .section-title h2 {
-            font-size:2.8rem;
-            background:linear-gradient(90deg,#ff3333,#ffaa00);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
+        .hero-image img {
+            width:380px; height:380px; border-radius:50%; object-fit:cover;
+            border:6px solid var(--primary); box-shadow:0 0 70px rgba(255,51,51,0.8);
+            animation:float 7s ease-in-out infinite;
         }
-        .section-title h2::after {
-            content:''; display:block; width:100px; height:5px; background:var(--primary);
-            margin:12px auto 0; border-radius:3px;
-        }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
 
-        .about, .projects, .languages { padding:120px 0; background:rgba(15,15,15,0.9); }
-        .about-content { display:flex; gap:4rem; align-items:center; }
-        .about-text p { margin-bottom:1.5rem; color:#ddd; }
-
-        .skills { display:grid; gap:1.5rem; }
-        .skill-item {
-            background:rgba(40,40,40,0.9); padding:1.8rem; border-radius:12px;
-            border-left:5px solid var(--primary);
+        .section-title {
+            text-align:center; margin:100px 0 60px;
+            font-size:3rem; background:linear-gradient(90deg,#ff3333,#ffaa00);
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
         }
-        .skill-item h4 { color:var(--primary); }
+        .section-title::after {
+            content:''; display:block; width:120px; height:5px; background:var(--primary);
+            margin:15px auto; border-radius:5px;
+        }
 
         .project-list, .languages-grid {
-            display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:2.5rem;
+            display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;
         }
         .project-card, .language-card {
-            background:rgba(30,30,30,0.9); padding:2.2rem; border-radius:16px;
-            position:relative; overflow:hidden;
+            background:var(--card); padding:2rem; border-radius:20px;
+            border-top:5px solid transparent;
+            border-image:linear-gradient(90deg,#ff3333,#ffaa00) 1;
+            transition:0.4s; text-align:center;
         }
-        .project-card::before, .language-card::before {
-            content:''; position:absolute; top:0; left:0; width:100%; height:7px;
-            background:linear-gradient(90deg,#ff3333,#ffaa00);
+        .project-card:hover, .language-card:hover {
+            transform:translateY(-15px); box-shadow:0 20px 40px rgba(255,51,51,0.3);
         }
-        .project-card:hover, .language-card:hover { transform:translateY(-15px); box-shadow:0 25px 50px rgba(255,51,51,0.4); }
+        .project-icon { font-size:3.5rem; margin-bottom:1rem; color:var(--secondary); }
+        .project-status { display:inline-block; margin-top:1rem; padding:8px 20px; background:rgba(255,51,51,0.2);
+            color:var(--primary); border-radius:30px; font-weight:600; }
 
-        footer { background:#0a0a0a; padding:80px 0 30px; text-align:center; }
+        .language-card img {
+            width:100px; height:100px; margin-bottom:1rem; filter:brightness(0) invert(1);
+            transition:0.4s;
+        }
+        .language-card:hover img { filter:none; transform:scale(1.15); }
+
+        footer {
+            background:#080808; padding:80px 0 40px; text-align:center;
+            border-top:1px solid #333;
+        }
         .social-links a {
-            display:inline-flex; width:60px; height:60px; margin:0 1rem; background:rgba(50,50,50,0.8);
+            display:inline-flex; width:60px; height:60px; margin:0 1rem; background:rgba(255,51,51,0.1);
             color:#fff; font-size:1.8rem; border-radius:50%; align-items:center; justify-content:center;
             transition:0.4s;
         }
         .social-links a:hover { background:var(--primary); transform:translateY(-8px); }
 
-        .animate-on-scroll { opacity:0; transform:translateY(50px); transition:1s; }
-        .animate-on-scroll.visible { opacity:1; transform:none; }
-
-        @media (max-width:992px) {
-            .hero-content, .about-content { flex-direction:column; text-align:center; }
-        }
         @media (max-width:768px) {
-            .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:#0f0f0f;
-                flex-direction:column; padding:2rem 0; box-shadow:0 15px 40px rgba(0,0,0,0.6); }
+            .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:#0a0a0a;
+                flex-direction:column; padding:2rem 0; }
             .nav-links.active { display:flex; }
             .mobile-menu-btn { display:block; }
+            .hero-content { flex-direction:column; text-align:center; }
+            .hero h1 { font-size:2.8rem; }
         }
     </style>
 </head>
@@ -175,7 +134,7 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo-container">
-                    <!-- 100% WORKING PERMANENT LINK -->
+                    <!-- YOUR REAL PFP - WORKING 100% -->
                     <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya" class="logo">
                     <span class="logo-text">Free De Le Hoya</span>
                 </div>
@@ -195,60 +154,38 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="animate-on-scroll">Hi, I'm <span>Free De Le Hoya</span></h1>
-                    <p class="animate-on-scroll">I'm a <span class="highlight">Problem Solver</span> passionate about technology</p>
-                    <p class="animate-on-scroll">Crafting powerful digital solutions with code and fire.</p>
+                    <h1>Hi, I'm <span>Free De Le Hoya</span></h1>
+                    <p>I'm a <span class="highlight">Problem Solver</span> passionate about technology</p>
+                    <p>Crafting powerful digital solutions with code and fire.</p>
                     <div class="hero-buttons">
-                        <a href="https://discord.com/users/1433020695561896006" target="_blank" class="btn btn-primary animate-on-scroll">Contact Me</a>
-                        <a href="#projects" class="btn btn-secondary animate-on-scroll">View Work</a>
+                        <a href="https://discord.com/users/1433020695561896006" target="_blank" class="btn btn-primary">Contact Me</a>
+                        <a href="#projects" class="btn btn-secondary">View Work</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- SAME PERMANENT LINK -->
-                    <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya" class="animate-on-scroll">
+                    <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- All the other sections (About, Projects, Languages, Footer) are exactly the same as before -->
-    <!-- I’m keeping them here so you have the complete file again -->
-
-    <section class="about" id="about">
+    <section id="projects">
         <div class="container">
-            <div class="section-title animate-on-scroll"><h2>About Me</h2></div>
-            <div class="about-content">
-                <div class="about-text animate-on-scroll">
-                    <p>Hello! I'm Free De Le Hoya, a technology enthusiast passionate about servers and development. I started my journey in 2019 and I've been constantly growing ever since.</p>
-                    <p>I love solving complex problems and building efficient systems.</p>
-                    <p>Specialized in server management, automation, and creating powerful tools.</p>
-                </div>
-                <div class="skills animate-on-scroll">
-                    <div class="skill-item"><h4>Web Development</h4><p>Modern & responsive websites</p></div>
-                    <div class="skill-item"><h4>Server Management</h4><p>Performance & security</p></div>
-                    <div class="skill-item"><h4>Automation</h4><p>Scripts, bots & tools</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-title animate-on-scroll"><h2>My Projects</h2></div>
+            <h2 class="section-title">My Projects</h2>
             <div class="project-list">
-                <div class="project-card animate-on-scroll">
+                <div class="project-card">
                     <div class="project-icon">Code</div>
                     <h3>Web Development</h3>
                     <p>Beautiful, fast, responsive websites.</p>
                     <span class="project-status">Active</span>
                 </div>
-                <div class="project-card animate-on-scroll">
+                <div class="project-card">
                     <div class="project-icon">Server</div>
                     <h3>Server Management</h3>
                     <p>High-performance & secure servers.</p>
                     <span class="project-status">Active</span>
                 </div>
-                <div class="project-card animate-on-scroll">
+                <div class="project-card">
                     <div class="project-icon">Robot</div>
                     <h3>Automation Tools</h3>
                     <p>Discord bots & workflow scripts.</p>
@@ -258,34 +195,34 @@
         </div>
     </section>
 
-    <section class="languages" id="languages">
+    <section id="languages">
         <div class="container">
-            <div class="section-title animate-on-scroll"><h2>Languages & Technologies</h2></div>
+            <h2 class="section-title">Languages & Technologies</h2>
             <div class="languages-grid">
-                <div class="language-card python animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
+                <div class="language-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
                     <h3>Python</h3>
-                    <div class="language-info"><p>Automation • Bots • AI</p></div>
+                    <p>Automation • Bots • AI</p>
                 </div>
-                <div class="language-card java animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
+                <div class="language-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
                     <h3>Java</h3>
-                    <div class="language-info"><p>Backend • Android</p></div>
+                    <p>Backend • Android</p>
                 </div>
-                <div class="language-card html animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"></div>
+                <div class="language-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
                     <h3>HTML5</h3>
-                    <div class="language-info"><p>Structure</p></div>
+                    <p>Structure</p>
                 </div>
-                <div class="language-card css animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"></div>
+                <div class="language-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
                     <h3>CSS3</h3>
-                    <div class="language-info"><p>Design & Animations</p></div>
+                    <p>Design & Animations</p>
                 </div>
-                <div class="language-card javascript animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                <div class="language-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
                     <h3>JavaScript</h3>
-                    <div class="language-info"><p>Interactive Web</p></div>
+                    <p>Interactive Web</p>
                 </div>
             </div>
         </div>
@@ -297,19 +234,14 @@
                 <a href="https://discord.com/users/1433020695561896006" target="_blank">Discord</a>
                 <a href="https://github.com/itzloot" target="_blank">GitHub</a>
             </div>
-            <p style="color:#ffaa00;margin:2rem 0;">FreeDeLeHoya.dev — Built with Fire</p>
-            <p style="color:#888;">© 2025 Free De Le Hoya. All rights reserved.</p>
+            <p style="color:#ffaa00; margin-top:3rem; font-size:1.3rem;">FreeDeLeHoya.dev — Built with Fire</p>
+            <p style="color:#666; margin-top:1rem;">© 2025 Free De Le Hoya</p>
         </div>
     </footer>
 
     <script>
         document.querySelector('.mobile-menu-btn').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active')});
-        document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{document.querySelector('.nav-links').classList.remove('active')}));
-
-        const obs = new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')}),{threshold:0.1});
-        document.querySelectorAll('.animate-on-scroll').forEach(el=>obs.observe(el));
-
-        window.addEventListener('scroll',()=>{document.querySelector('header').style.background = window.scrollY>80?"rgba(10,10,10,0.98)":"rgba(15,15,15,0.95)"});
+        document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('active')));
     </script>
 </body>
 </html>
