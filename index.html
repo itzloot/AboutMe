@@ -10,9 +10,9 @@
 
     <style>
         :root {
-            --primary: #ff3333;      /* Fiery Red */
-            --primary-dark: #ff6600; /* Orange-Red */
-            --secondary: #ffaa00;    /* Bright Yellow */
+            --primary: #ff3333;
+            --primary-dark: #ff6600;
+            --secondary: #ffaa00;
             --dark: #0f0f0f;
             --light: #ffffff;
             --gray: #888888;
@@ -48,7 +48,7 @@
         .logo {
             width:52px; height:52px; border-radius:50%; object-fit:cover;
             border:3px solid var(--primary);
-            box-shadow:0 0 25px rgba(255,51,51,0.6);
+            box-shadow:0 0 30px rgba(255,51,51,0.7);
         }
 
         .logo-text {
@@ -138,13 +138,12 @@
         }
 
         .about-content { display:flex; align-items:center; gap:4rem; }
-        .about-text { flex:2; }
         .about-text p { margin-bottom:1.5rem; font-size:1.1rem; color:#e0e0e0; }
 
         .skills { flex:1; display:flex; flex-direction:column; gap:1.2rem; }
         .skill-item {
             background:rgba(30,30,30,0.7); padding:1.5rem; border-radius:12px;
-            border-left:4px solid var(--primary); transition:var(--transition);
+            border-left:4px solid var(--primary);
         }
         .skill-item h4 { color:var(--primary); margin-bottom:0.5rem; }
 
@@ -184,46 +183,23 @@
         .language-icon img { width:100%; filter:brightness(0) invert(1); transition:var(--transition); }
         .language-card:hover .language-icon img { filter:none; }
 
-        .language-card.python:hover .language-icon { background:rgba(255,215,0,0.15); }
-        .language-card.java:hover .language-icon { background:rgba(237,137,43,0.15); }
-        .language-card.html:hover .language-icon { background:rgba(227,79,38,0.15); }
-        .language-card.css:hover .language-icon { background:rgba(33,150,243,0.15); }
-        .language-card.javascript:hover .language-icon { background:rgba(247,223,30,0.15); }
-
         .language-info { height:0; overflow:hidden; opacity:0; transition:var(--transition); }
         .language-card:hover .language-info { height:auto; opacity:1; margin-top:1rem; }
 
         footer {
             background:rgba(10,10,10,0.98); padding:70px 0 30px; text-align:center;
         }
-        .social-links {
-            display:flex; gap:1.5rem; justify-content:center; margin-bottom:2rem;
-        }
-        .social-links a {
-            width:50px; height:50px; border-radius:50%; background:rgba(40,40,40,0.8);
-            color:white; font-size:1.4rem; display:flex; align-items:center; justify-content:center;
-            transition:var(--transition);
-        }
         .social-links a:hover { background:var(--primary); transform:translateY(-6px); }
 
         .animate-on-scroll { opacity:0; transform:translateY(40px); transition:all 0.9s cubic-bezier(0.4,0,0.2,1); }
         .animate-on-scroll.visible { opacity:1; transform:translateY(0); }
 
-        @media (max-width:992px) {
-            .hero-content, .about-content { flex-direction:column; text-align:center; }
-            .hero-buttons { justify-content:center; }
-        }
+        @media (max-width:992px) { .hero-content, .about-content { flex-direction:column; text-align:center; } }
         @media (max-width:768px) {
             .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:var(--dark);
                 flex-direction:column; padding:2rem 0; box-shadow:0 10px 30px rgba(0,0,0,0.5); }
             .nav-links.active { display:flex; }
             .mobile-menu-btn { display:block; }
-            .hero h1 { font-size:2.8rem; }
-        }
-        @media (max-width:576px) {
-            .hero h1 { font-size:2.4rem; }
-            .hero-buttons { flex-direction:column; align-items:center; }
-            .btn { width:100%; max-width:280px; }
         }
     </style>
 </head>
@@ -233,7 +209,6 @@
         <div class="container">
             <nav class="navbar">
                 <div class="logo-container">
-                    <!-- TEMP PLACEHOLDER - Replace with your new public URL -->
                     <img src="https://i.imgur.com/7kV3Z0f.jpg" alt="Free De Le Hoya" class="logo">
                     <span class="logo-text">Free De Le Hoya</span>
                 </div>
@@ -246,7 +221,7 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
 
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <button class="mobile-menu-btn">Menu</button>
             </nav>
         </div>
     </header>
@@ -265,7 +240,6 @@
                 </div>
 
                 <div class="hero-image">
-                    <!-- TEMP PLACEHOLDER - Replace with your new public URL -->
                     <img src="https://i.imgur.com/7kV3Z0f.jpg" alt="Free De Le Hoya" class="animate-on-scroll">
                 </div>
             </div>
@@ -274,9 +248,7 @@
 
     <section class="about" id="about">
         <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>About Me</h2>
-            </div>
+            <div class="section-title animate-on-scroll"><h2>About Me</h2></div>
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
                     <p>Hello! I'm Free De Le Hoya, a technology enthusiast passionate about servers and development. I started my journey with servers in 2019 and since then, I've been constantly improving my skills across different platforms.</p>
@@ -284,18 +256,9 @@
                     <p>Experience in server management, performance optimization, and creating automation tools to streamline workflows.</p>
                 </div>
                 <div class="skills animate-on-scroll">
-                    <div class="skill-item">
-                        <h4>Web Development</h4>
-                        <p>Creating responsive and modern websites</p>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Server Management</h4>
-                        <p>Configuration, maintenance & optimization</p>
-                    </div>
-                    <div class="skill-item">
-                        <h4>Automation</h4>
-                        <p>Development of scripts and tools</p>
-                    </div>
+                    <div class="skill-item"><h4>Web Development</h4><p>Creating responsive and modern websites</p></div>
+                    <div class="skill-item"><h4>Server Management</h4><p>Configuration, maintenance & optimization</p></div>
+                    <div class="skill-item"><h4>Automation</h4><p>Development of scripts and tools</p></div>
                 </div>
             </div>
         </div>
@@ -303,24 +266,22 @@
 
     <section class="projects" id="projects">
         <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>My Projects</h2>
-            </div>
+            <div class="section-title animate-on-scroll"><h2>My Projects</h2></div>
             <div class="project-list">
                 <div class="project-card animate-on-scroll">
-                    <div class="project-icon"><i class="fas fa-code"></i></div>
+                    <div class="project-icon">Code</div>
                     <h3>Web Development</h3>
                     <p>Creating dynamic and responsive websites using modern technologies.</p>
                     <span class="project-status">In Development</span>
                 </div>
                 <div class="project-card animate-on-scroll">
-                    <div class="project-icon"><i class="fas fa-server"></i></div>
+                    <div class="project-icon">Server</div>
                     <h3>Server Management</h3>
                     <p>Expertise in managing and optimizing servers.</p>
                     <span class="project-status">In Development</span>
                 </div>
                 <div class="project-card animate-on-scroll">
-                    <div class="project-icon"><i class="fas fa-robot"></i></div>
+                    <div class="project-icon">Robot</div>
                     <h3>Automation Tools</h3>
                     <p>Developing scripts to improve efficiency.</p>
                     <span class="project-status">In Development</span>
@@ -331,9 +292,7 @@
 
     <section class="languages" id="languages">
         <div class="container">
-            <div class="section-title animate-on-scroll">
-                <h2>Languages & Technologies</h2>
-            </div>
+            <div class="section-title animate-on-scroll"><h2>Languages & Technologies</h2></div>
             <div class="languages-grid">
                 <div class="language-card python animate-on-scroll">
                     <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
@@ -356,7 +315,7 @@
                     <div class="language-info"><p>Stunning designs & animations</p></div>
                 </div>
                 <div class="language-card javascript animate-on-scroll">
-                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"></div>
+                    <div class="language-icon"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript/javascript-original.svg" alt="JavaScript"></div>
                     <h3>JavaScript</h3>
                     <div class="language-info"><p>Interactive web experiences</p></div>
                 </div>
@@ -368,12 +327,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="https://discord.com/users/1433020695561896006" target="_blank"><i class="fab fa-discord"></i></a>
-                    <a href="https://github.com/itzloot" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://discord.com/users/1433020695561896006" target="_blank">Discord</a>
+                    <a href="https://github.com/itzloot" target="_blank">GitHub</a>
                 </div>
                 <div class="footer-text">
-                    <p>@freedelehoya 0n Top</p>
-                    <p>Still Have Doubts?, Feel Free To Contact Me Privately!</p>
+                    <p>FreeDeLeHoya.dev – Built with Fire</p>
+                    <p>New projects coming soon...</p>
                 </div>
                 <div class="copyright">
                     <p>© 2025 Free De Le Hoya. All rights reserved.</p>
@@ -382,9 +341,7 @@
         </div>
     </footer>
 
-    <!-- Smooth Animations & Mobile Menu -->
     <script>
-        // Mobile menu
         document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
@@ -394,18 +351,14 @@
             });
         });
 
-        // Scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.15 });
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        // Navbar effect on scroll
         window.addEventListener('scroll', () => {
             document.querySelector('header').style.background = 
                 window.scrollY > 80 ? "rgba(10,10,10,0.98)" : "rgba(15,15,15,0.95)";
