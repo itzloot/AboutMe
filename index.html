@@ -3,227 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free De Le Hoya - Professional Portfolio</title>
+    <title>Free De Le Hoya</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    
     <style>
         :root {
-            --primary: #ff3333;
-            --secondary: #ffaa00;
+            --red: #ff3333;
+            --yellow: #ffaa00;
             --dark: #0a0a0a;
             --card: #111111;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body { font-family:'Poppins',sans-serif; background:var(--dark); color:#fff; }
-
-        .container { width:90%; max-width:1200px; margin:0 auto; padding:0 20px; }
+        body { font-family:'Poppins',sans-serif; background:var(--dark); color:white; overflow-x:hidden; }
+        .container { max-width:1200px; margin:0 auto; padding:0 20px; }
 
         header {
-            position:fixed; top:0; left:0; width:100%; z-index:1000;
+            position:fixed; top:0; width:100%; z-index:1000;
             background:rgba(10,10,10,0.95); backdrop-filter:blur(15px);
-            padding:1rem 0; border-bottom:1px solid #333;
+            padding:1rem 0; border-bottom:2px solid #222;
+            transition:0.4s;
         }
         .navbar { display:flex; justify-content:space-between; align-items:center; }
         .logo-container { display:flex; align-items:center; gap:15px; }
-        .logo {
-            width:55px; height:55px; border-radius:50%; object-fit:cover;
-            border:3px solid var(--primary); box-shadow:0 0 30px rgba(255,51,51,0.8);
-        }
-        .logo-text {
-            font:800 1.8rem 'Montserrat'; background:linear-gradient(90deg,#ff3333,#ffaa00);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-        }
+        .logo { width:60px; height:60px; border-radius:50%; border:4px solid var(--red); box-shadow:0 0 30px rgba(255,51,51,0.8); object-fit:cover; }
+        .logo-text { font:800 2rem 'Montserrat'; background:linear-gradient(90deg,var(--red),var(--yellow)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
         .nav-links { display:flex; gap:2.5rem; list-style:none; }
-        .nav-links a {
-            color:#fff; text-decoration:none; font-weight:600; font-size:1.1rem;
-            padding:0.5rem 0; position:relative;
-        }
-        .nav-links a::after {
-            content:''; position:absolute; bottom:0; left:0; width:0; height:3px;
-            background:var(--primary); transition:0.4s;
-        }
-        .nav-links a:hover { color:var(--secondary); }
+        .nav-links a { color:white; text-decoration:none; font-weight:600; position:relative; padding:0.5rem 0; }
+        .nav-links a::after { content:''; position:absolute; bottom:-8px; left:0; width:0; height:3px; background:var(--red); transition:0.4s; }
+        .nav-links a:hover { color:var(--yellow); }
         .nav-links a:hover::after { width:100%; }
+        .mobile-menu-btn { display:none; background:none; border:none; color:white; font-size:2rem; cursor:pointer; }
 
-        .mobile-menu-btn { display:none; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; }
-
-        .hero {
-            min-height:100vh; display:flex; align-items:center; padding:140px 0 100px;
-            background:radial-gradient(circle at 20% 80%, rgba(255,51,51,0.15), transparent 50%),
-                       radial-gradient(circle at 80% 20%, rgba(255,170,0,0.15), transparent 50%);
+        .hero { min-height:100vh; display:flex; align-items:center; padding:140px 0 100px;
+            background:radial-gradient(600px at 20% 80%, rgba(255,51,51,0.15), transparent),
+                       radial-gradient(600px at 80% 20%, rgba(255,170,0,0.15), transparent);
         }
         .hero-content { display:flex; align-items:center; gap:5rem; }
-        .hero-text h1 { font-size:4rem; margin-bottom:1rem; }
-        .hero-text h1 span { background:linear-gradient(90deg,#ff3333,#ffaa00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-        .highlight { color:var(--secondary); }
-        .hero-buttons { margin-top:2rem; display:flex; gap:1.hero-buttons a {
-            padding:16px 40px; border-radius:50px; font-weight:600; text-decoration:none;
-            transition:0.4s;
-        }
-        .btn-primary { background:linear-gradient(90deg,#ff3333,#ffaa00); color:#fff; box-shadow:0 10px 30px rgba(255,51,51,0.5); }
+        .hero-text h1 { font-size:4.2rem; margin-bottom:1rem; }
+        .hero-text h1 span { background:linear-gradient(90deg,var(--red),var(--yellow)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+        .highlight { color:var(--yellow); font-weight:700; }
+        .hero-buttons { margin-top:2rem; display:flex; gap:1.5rem; }
+        .btn-primary, .btn-secondary { padding:16px 45px; border-radius:50px; font-weight:600; text-decoration:none; transition:0.4s; }
+        .btn-primary { background:linear-gradient(90deg,var(--red),var(--yellow)); color:white; box-shadow:0 10px 30px rgba(255,51,51,0.5); }
         .btn-primary:hover { transform:translateY(-5px); box-shadow:0 15px 40px rgba(255,170,0,0.6); }
-        .btn-secondary { border:2px solid #666; color:#fff; }
-        .btn-secondary:hover { border-color:var(--secondary); color:var(--secondary); }
+        .btn-secondary { border:2px solid #666; color:white; }
+        .btn-secondary:hover { border-color:var(--yellow); color:var(--yellow); }
 
-        .hero-image img {
-            width:380px; height:380px; border-radius:50%; object-fit:cover;
-            border:6px solid var(--primary); box-shadow:0 0 70px rgba(255,51,51,0.8);
-            animation:float 7s ease-in-out infinite;
-        }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+        .hero-image img { width:380px; height:380px; border-radius:50%; object-fit:cover; border:6px solid var(--red); box-shadow:0 0 70px rgba(255,51,51,0.8); }
 
-        .section-title {
-            text-align:center; margin:100px 0 60px;
-            font-size:3rem; background:linear-gradient(90deg,#ff3333,#ffaa00);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+        .section-title { text-align:center; padding:100px 0 60px; font-size:3.2rem;
+            background:linear-gradient(90deg,var(--red),var(--yellow)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;
         }
-        .section-title::after {
-            content:''; display:block; width:120px; height:5px; background:var(--primary);
-            margin:15px auto; border-radius:5px;
-        }
+        .section-title::after { content:''; display:block; width:120px; height:5px; background:var(--red); margin:20px auto; border-radius:5px; }
 
-        .project-list, .languages-grid {
-            display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;
-        }
-        .project-card, .language-card {
-            background:var(--card); padding:2rem; border-radius:20px;
-            border-top:5px solid transparent;
-            border-image:linear-gradient(90deg,#ff3333,#ffaa00) 1;
-            transition:0.4s; text-align:center;
-        }
-        .project-card:hover, .language-card:hover {
-            transform:translateY(-15px); box-shadow:0 20px 40px rgba(255,51,51,0.3);
-        }
-        .project-icon { font-size:3.5rem; margin-bottom:1rem; color:var(--secondary); }
-        .project-status { display:inline-block; margin-top:1rem; padding:8px 20px; background:rgba(255,51,51,0.2);
-            color:var(--primary); border-radius:30px; font-weight:600; }
+        .project-list, .languages-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:2.5rem; padding-bottom:100px; }
+        .project-card, .language-card { background:var(--card); padding:2.5rem; border-radius:20px; text-align:center;
+            border-top:6px solid transparent; border-image:linear-gradient(90deg,var(--red),var(--yellow)) 1; transition:0.5s; }
+        .project-card:hover, .language-card:hover { transform:translateY(-15px); box-shadow:0 25px 50px rgba(255,51,51,0.4); }
+        .project-icon { font-size:4rem; color:var(--yellow); margin-bottom:1rem; }
+        .project-status { padding:10px 25px; background:rgba(255,51,51,0.2); color:var(--red); border-radius:30px; font-weight:600; }
 
-        .language-card img {
-            width:100px; height:100px; margin-bottom:1rem; filter:brightness(0) invert(1);
-            transition:0.4s;
-        }
-        .language-card:hover img { filter:none; transform:scale(1.15); }
+        .language-card img { width:120px; height:120px; margin-bottom:1.5rem; filter:brightness(0) invert(1); transition:0.4s; }
+        .language-card:hover img { filter:none; transform:scale(1.1); }
 
-        footer {
-            background:#080808; padding:80px 0 40px; text-align:center;
-            border-top:1px solid #333;
-        }
-        .social-links a {
-            display:inline-flex; width:60px; height:60px; margin:0 1rem; background:rgba(255,51,51,0.1);
-            color:#fff; font-size:1.8rem; border-radius:50%; align-items:center; justify-content:center;
-            transition:0.4s;
-        }
-        .social-links a:hover { background:var(--primary); transform:translateY(-8px); }
+        footer { background:#080808; padding:80px 20px 40px; text-align:center; border-top:1px solid #222; }
+        .social-links a { display:inline-flex; width:65px; height:65px; margin:0 1.5rem; background:rgba(255,51,51,0.1);
+            color:white; font-size:2rem; border-radius:50%; align-items:center; justify-content:center; transition:0.4s; }
+        .social-links a:hover { background:var(--red); transform:translateY(-10px); }
 
         @media (max-width:768px) {
-            .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:#0a0a0a;
-                flex-direction:column; padding:2rem 0; }
+            .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:var(--dark);
+                flex-direction:column; padding:2rem; box-shadow:0 15px 40px black; }
             .nav-links.active { display:flex; }
             .mobile-menu-btn { display:block; }
             .hero-content { flex-direction:column; text-align:center; }
-            .hero h1 { font-size:2.8rem; }
+            .hero h1 { font-size:3rem; }
         }
+
+        .animate { opacity:0; transform:translateY(50px); transition:all 0.9s ease-out; }
+        .animate.visible { opacity:1; transform:none; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo-container">
-                    <!-- YOUR REAL PFP - WORKING 100% -->
-                    <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya" class="logo">
-                    <span class="logo-text">Free De Le Hoya</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#languages">Languages</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="mobile-menu-btn">Menu</button>
-            </nav>
+        <div class="container navbar">
+            <div class="logo-container">
+                <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya" class="logo">
+                <div class="logo-text">Free De Le Hoya</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">Menu</button>
         </div>
     </header>
 
     <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Hi, I'm <span>Free De Le Hoya</span></h1>
-                    <p>I'm a <span class="highlight">Problem Solver</span> passionate about technology</p>
-                    <p>Crafting powerful digital solutions with code and fire.</p>
-                    <div class="hero-buttons">
-                        <a href="https://discord.com/users/1433020695561896006" target="_blank" class="btn btn-primary">Contact Me</a>
-                        <a href="#projects" class="btn btn-secondary">View Work</a>
-                    </div>
+        <div class="container hero-content">
+            <div class="hero-text animate">
+                <h1>Hi, I'm <span>Free De Le Hoya</span></h1>
+                <p>I'm a <span class="highlight">Problem Solver</span> passionate about technology</p>
+                <p>Crafting powerful digital solutions with code and fire.</p>
+                <div class="hero-buttons">
+                    <a href="https://discord.com/users/1433020695561896006" target="_blank" class="btn-primary">Contact Me</a>
+                    <a href="#projects" class="btn-secondary">View Work</a>
                 </div>
-                <div class="hero-image">
-                    <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya">
-                </div>
+            </div>
+            <div class="hero-image animate">
+                <img src="https://i.imgur.com/JQ8pX5b.jpeg" alt="Free De Le Hoya">
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="project-list">
-                <div class="project-card">
-                    <div class="project-icon">Code</div>
-                    <h3>Web Development</h3>
-                    <p>Beautiful, fast, responsive websites.</p>
-                    <span class="project-status">Active</span>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">Server</div>
-                    <h3>Server Management</h3>
-                    <p>High-performance & secure servers.</p>
-                    <span class="project-status">Active</span>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">Robot</div>
-                    <h3>Automation Tools</h3>
-                    <p>Discord bots & workflow scripts.</p>
-                    <span class="project-status">Active</span>
-                </div>
+        <h2 class="section-title animate">My Projects</h2>
+        <div class="container project-list">
+            <div class="project-card animate">
+                <div class="project-icon">Code</div>
+                <h3>Web Development</h3>
+                <p>Beautiful, fast, responsive websites.</p>
+                <span class="project-status">Active</span>
+            </div>
+            <div class="project-card animate">
+                <div class="project-icon">Server</div>
+                <h3>Server Management</h3>
+                <p>High-performance & secure servers.</p>
+                <span class="project-status">Active</span>
+            </div>
+            <div class="project-card animate">
+                <div class="project-icon">Robot</div>
+                <h3>Automation Tools</h3>
+                <p>Discord bots & workflow scripts.</p>
+                <span class="project-status">Active</span>
             </div>
         </div>
     </section>
 
     <section id="languages">
-        <div class="container">
-            <h2 class="section-title">Languages & Technologies</h2>
-            <div class="languages-grid">
-                <div class="language-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-                    <h3>Python</h3>
-                    <p>Automation • Bots • AI</p>
-                </div>
-                <div class="language-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                    <h3>Java</h3>
-                    <p>Backend • Android</p>
-                </div>
-                <div class="language-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-                    <h3>HTML5</h3>
-                    <p>Structure</p>
-                </div>
-                <div class="language-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-                    <h3>CSS3</h3>
-                    <p>Design & Animations</p>
-                </div>
-                <div class="language-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-                    <h3>JavaScript</h3>
-                    <p>Interactive Web</p>
-                </div>
+        <h2 class="section-title animate">Languages & Technologies</h2>
+        <div class="container languages-grid">
+            <div class="language-card animate">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <h3>Python</h3>
+                <p>Automation • Bots • AI</p>
+            </div>
+            <div class="language-card animate">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                <h3>Java</h3>
+                <p>Backend • Android</p>
+            </div>
+            <div class="language-card animate">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <h3>HTML5</h3>
+                <p>Structure</p>
+            </div>
+            <div class="language-card animate">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                <h3>CSS3</h3>
+                <p>Design & Animations</p>
+            </div>
+            <div class="language-card animate">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <h3>JavaScript</h3>
+                <p>Interactive Web</p>
             </div>
         </div>
     </section>
@@ -234,14 +184,12 @@
                 <a href="https://discord.com/users/1433020695561896006" target="_blank">Discord</a>
                 <a href="https://github.com/itzloot" target="_blank">GitHub</a>
             </div>
-            <p style="color:#ffaa00; margin-top:3rem; font-size:1.3rem;">FreeDeLeHoya.dev — Built with Fire</p>
-            <p style="color:#666; margin-top:1rem;">© 2025 Free De Le Hoya</p>
+            <p style="color:var(--yellow); margin-top:3rem; font-size:1.5rem;">FreeDeLeHoya.dev — Built with Fire</p>
+            <p style="color:#888; margin-top:1rem;">© 2025 Free De Le Hoya</p>
         </div>
     </footer>
 
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active')});
-        document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('active')));
-    </script>
+    <!-- Load the magic -->
+    <script src="script.js"></script>
 </body>
 </html>
